@@ -1,0 +1,33 @@
+.footer {
+    background-color: $primary-color;
+    color: $text-color-dark-background;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+
+
+    &__navigation {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem;
+
+        li {
+            display: inline;
+            margin: 0 1rem;
+
+            a {
+                text-decoration: none;
+                color: $text-color-dark-background;
+
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        font-size: 0.875rem;
+    }
+}

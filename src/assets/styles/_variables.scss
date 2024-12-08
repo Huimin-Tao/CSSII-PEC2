@@ -1,0 +1,112 @@
+@use "sass:color";
+
+
+//------------------------------------*\\
+// Función personalizada
+//------------------------------------*\\
+
+@function adjust-opacity($color, $opacity) {
+  @return color.change($color, $alpha: $opacity);
+}
+
+
+
+
+
+//------------------------------------*\\
+// Variables con colores y fuentes
+//------------------------------------*\\
+
+$font-family-noto-serif: "Noto Serif", serif;
+$font-family-roboto: "Roboto", sans-serif;
+
+$primary-color: #313866;
+$secondary-color: #BF0CF0;
+$contrast-color-light: #F3CCF3;
+$text-color-dark-background: #FFFFFF;
+$text-color-grey: #9e9dab;
+
+
+// Ajustar la opacidad de fondo usando la función
+$bg-color: adjust-opacity($text-color-dark-background, 0.9);
+
+
+// Variables de media queries
+$mqMinMobile: 768px;
+$mqMinTablet: 992px;
+$mqMinDesktop: 1600px;
+
+
+
+
+
+//------------------------------------*\\
+// Sobrescritura de Variables de Bootstrap
+//------------------------------------*\\
+
+// Colores y tipografías Generales
+$body-bg: $bg-color;
+$body-color: $text-color-dark-background;
+$font-family-base: $font-family-roboto;
+$headings-font-family: $font-family-noto-serif;
+
+// Jumbotron
+$primary: #313866;
+$text:#FFFFFF;
+
+// Formulario
+$form-control-border-color: #313866;
+$form-control-focus-border:
+color.adjust($form-control-border-color, $lightness: -15%);
+.form-custom {
+  .form-control {
+        border-color: $form-control-border-color;
+        &:focus {
+            border-color: $form-control-focus-border;
+            box-shadow: 0 0 5px $form-control-focus-border;
+        }
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: $primary-color;
+    }
+}
+
+// Botón
+$btn-primary-bg: #313866;
+$btn-primary-color: #ffffff;
+$btn-primary-hover-bg:
+color.adjust($btn-primary-bg, $lightness: 10%);
+.btn-custom {
+    background-color: $btn-primary-bg;
+    color: $btn-primary-color;
+
+    &:hover {
+        background-color: $btn-primary-hover-bg;
+    }
+}
+
+// Popover
+$popover-bg: $primary-color;
+$popover-color: #ffffff;
+$popover-border-color:
+color.adjust($primary-color, $lightness: 15%);
+.popover-custom {
+    background-color: $popover-bg;
+    color: $popover-color;
+    border: 1px solid $popover-border-color;
+}
+
+// Carrusel
+$carousel-indicator-bg: $secondary-color;
+$carousel-indicator-active-bg:
+color.adjust($secondary-color, $lightness: -10%);
+.carousel-custom {
+    .carousel-indicators button {
+        background-color: $carousel-indicator-bg;
+        &.active {
+            background-color: $carousel-indicator-active-bg;
+        }
+    }
+}
